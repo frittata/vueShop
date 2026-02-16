@@ -1,48 +1,51 @@
-# vue-shop
+# 🛒 Vue Shop
 
-This template should help get you started developing with Vue 3 in Vite.
+Simple Vue e-commerce using **Vue 3**, **Vite** and **Vuetify**, using mock data from [FakeStoreAPI](https://fakestoreapi.com/).
 
-## Recommended IDE Setup
+## 🚀 Features
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Autenticazione**: login system using `useStorage`.
+- **Gestione Stato**: **Pinia** to handle cart, wishlist, snackbar messages and auth.
+- **Persistenza Dati**: **VueUse** to persist data.
+- **UI/UX**: **Vuetify 3** for responsive layout, icons and feedback.
+- **Routing**: Vue Router.
 
-## Recommended Browser Setup
+---
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## 🛠️ Tech Stack
 
-## Type Support for `.vue` Imports in TS
+- **Framework**: [Vue.js 3](https://vuejs.org/) (Composition API)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **State Management**: [Pinia](https://pinia.vuejs.org/)
+- **UI Library**: [Vuetify 3](https://vuetifyjs.com/)
+- **Utilities**: [@vueuse/core](https://vueuse.org/)
+- **HTTP Client**: [Axios](https://axios-http.com/)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+---
 
-## Customize configuration
+## 📦 Installazione
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+1.  **Clone repository**:
 
-## Project Setup
+    ```bash
+    git clone [https://github.com/frittata/vueShop.git](https://github.com/frittata/vueShop.git)
+    cd vueShop
+    ```
 
-```sh
-npm install
-```
+2.  **Install dipendenze**:
 
-### Compile and Hot-Reload for Development
+    ```bash
+    npm install
+    ```
 
-```sh
-npm run dev
-```
+3.  **Env configuration**:
+    Create `.env`:
 
-### Type-Check, Compile and Minify for Production
+    ```env
+    VITE_API_BASE_URL=[https://fakestoreapi.com](https://fakestoreapi.com)
+    ```
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+4.  **Run application**:
+    ```bash
+    npm run dev
+    ```
