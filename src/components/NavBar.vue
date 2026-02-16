@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 import { getProductsCategories } from '@/api/fakeStore'
 import { useTheme } from 'vuetify'
 import { useAuthStore } from '@/stores/auth'
+import { useWishlistStore } from '@/stores/wishlist'
 
 const router = useRouter()
 const categories = ref<string[]>([])
@@ -27,6 +28,8 @@ watch(group, () => {
 
 const cartStore = useCartStore()
 const totalCartItems = computed(() => cartStore.totalItems)
+const wishlistStore = useWishlistStore()
+const totalWishlistItems = computed(() => wishlistStore.totalItems)
 const theme = useTheme()
 const authStore = useAuthStore()
 const isAuthenticated = computed(() => authStore.isAuthenticated)
@@ -58,6 +61,16 @@ function toggleTheme() {
         :offset-x="10"
         :offset-y="10"
         ><v-btn icon="mdi-cart" variant="text" to="/cart"></v-btn
+      ></v-badge>
+
+      <v-badge
+        v-if="totalWishlistItems > 0 && isAuthenticated"
+        location="top right"
+        color="error"
+        :content="totalWishlistItems"
+        :offset-x="10"
+        :offset-y="10"
+        ><v-btn icon="mdi-heart" variant="text" to="/wishlist"></v-btn
       ></v-badge>
 
       <v-btn v-if="!isAuthenticated" icon="mdi-login" variant="text" to="/login"></v-btn>

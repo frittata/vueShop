@@ -3,7 +3,10 @@ import type { User } from '@/types/user'
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://fakestoreapi.com',
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 })
 
 export const getProducts = async (): Promise<Product[]> => {

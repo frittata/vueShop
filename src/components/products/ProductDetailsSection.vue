@@ -2,6 +2,7 @@
 import type { Product } from '@/types/product'
 import ProductAddToCartBtn from './ProductAddToCartBtn.vue'
 import BackBtn from '../BackBtn.vue'
+import ProductAddToWishlistBtn from './ProductAddToWishlistBtn.vue'
 
 defineProps<{
   product: Product
@@ -33,6 +34,7 @@ defineProps<{
       </div>
       <v-card title="Product details" :text="product.description" variant="tonal">
         <v-card-actions class="justify-end">
+          <product-add-to-wishlist-btn :product="product" />
           <product-add-to-cart-btn :product="product" />
         </v-card-actions>
       </v-card>

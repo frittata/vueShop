@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Product } from '@/types/product'
 import ProductAddToCartBtn from './ProductAddToCartBtn.vue'
+import ProductAddToWishlistBtn from './ProductAddToWishlistBtn.vue'
 
 defineProps<{
   product: Product
@@ -10,6 +11,9 @@ defineProps<{
 <template>
   <v-col lg="3" md="4" sm="6" cols="12">
     <v-card elevation="2">
+      <div style="position: relative; margin-bottom: -50px; z-index: 9" class="text-right">
+        <product-add-to-wishlist-btn :product="product" />
+      </div>
       <v-img :src="product.image" :alt="product.title" height="200" class="ma-4" />
       <v-card-item>
         <v-card-title>
