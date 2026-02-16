@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import NavBar from './components/NavBar.vue'
+import { useSnackbarStore } from './stores/snackbar'
+
+const snackbarstore = useSnackbarStore()
+const snackbar = computed(() => snackbarstore.snackbar)
 </script>
 
 <template>
@@ -9,6 +14,10 @@ import NavBar from './components/NavBar.vue'
     <main class="main">
       <RouterView />
     </main>
+
+    <v-snackbar v-model="snackbar.show" :color="snackbar.color">
+      {{ snackbar.text }}
+    </v-snackbar>
   </div>
 </template>
 

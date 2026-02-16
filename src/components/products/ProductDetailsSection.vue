@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Product } from '@/types/product'
+import ProductAddToCartBtn from './ProductAddToCartBtn.vue'
 import BackBtn from '../BackBtn.vue'
 
 defineProps<{
@@ -30,7 +31,11 @@ defineProps<{
         />
         <div class="mt-1 ml-1">{{ product.rating.count }} recensioni</div>
       </div>
-      <v-card title="Product details" :text="product.description" variant="tonal"> </v-card>
+      <v-card title="Product details" :text="product.description" variant="tonal">
+        <v-card-actions class="justify-end">
+          <product-add-to-cart-btn :product="product" />
+        </v-card-actions>
+      </v-card>
     </v-col>
   </v-row>
 </template>

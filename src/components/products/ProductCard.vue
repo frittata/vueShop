@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Product } from '@/types/product'
+import ProductAddToCartBtn from './ProductAddToCartBtn.vue'
 
 defineProps<{
   product: Product
@@ -25,6 +26,7 @@ defineProps<{
         />
       </v-card-item>
       <v-card-actions class="justify-space-between">
+        <product-add-to-cart-btn :product="product" />
         <v-btn
           :to="`/product/${product.id}`"
           color="primary"
