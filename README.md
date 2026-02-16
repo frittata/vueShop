@@ -42,7 +42,7 @@ Simple Vue e-commerce using **Vue 3**, **Vite** and **Vuetify**, using mock data
     Create `.env`:
 
     ```env
-    VITE_API_BASE_URL=[https://fakestoreapi.com](https://fakestoreapi.com)
+    VITE_API_BASE_URL=https://fakestoreapi.com
     ```
 
 4.  **Run application**:
