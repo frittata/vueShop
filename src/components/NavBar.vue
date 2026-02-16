@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { useCartStore } from '@/stores/cart'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { getProductsCategories } from '@/api/fakeStore'
 import { useTheme } from 'vuetify'
+import { useAuthStore } from '@/stores/auth'
 
 const router = useRouter()
 const categories = ref<string[]>([])
@@ -15,19 +17,19 @@ const goToHome = () => {
 }
 
 onMounted(async () => {
-  try {
-    categories.value = await getProductsCategories()
-  } catch (error) {
-    console.error('Errore nel caricamento categorie:', error)
-  } finally {
-    loading.value = false
-  }
+  categories.value = await getProductsCategories()
+  loading.value = false
 })
 
 watch(group, () => {
   drawer.value = false
 })
+
+const cartStore = useCartStore()
+const totalCartItems = computed(() => cartStore.totalItems)
 const theme = useTheme()
+const authStore = useAuthStore()
+const isAuthenticated = computed(() => authStore.isAuthenticated)
 
 function toggleTheme() {
   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
@@ -49,10 +51,17 @@ function toggleTheme() {
         :icon="theme.global.current.value.dark ? 'mdi-weather-sunny' : 'mdi-weather-night'"
         @click="toggleTheme"
       ></v-btn>
-      <v-btn icon="mdi-cart" variant="text" to="/cart"></v-btn>
+      <v-badge
+        location="top right"
+        color="primary"
+        :content="totalCartItems"
+        :offset-x="10"
+        :offset-y="10"
+        ><v-btn icon="mdi-cart" variant="text" to="/cart"></v-btn
+      ></v-badge>
 
-      <v-btn icon="mdi-login" variant="text" to="/login"></v-btn>
-      <v-btn icon="mdi-account" variant="text" to="/login"></v-btn>
+      <v-btn v-if="!isAuthenticated" icon="mdi-login" variant="text" to="/login"></v-btn>
+      <v-btn v-else-if="isAuthenticated" icon="mdi-account" variant="text" to="/login"></v-btn>
     </v-app-bar>
 
     <v-navigation-drawer
