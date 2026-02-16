@@ -4,9 +4,9 @@ Simple Vue e-commerce using **Vue 3**, **Vite** and **Vuetify**, using mock data
 
 ## 🚀 Features
 
-- **Autenticazione**: login system using `useStorage`.
-- **Gestione Stato**: **Pinia** to handle cart, wishlist, snackbar messages and auth.
-- **Persistenza Dati**: **VueUse** to persist data.
+- **Authentication**: login system using FakeStoreAPI [users](https://fakestoreapi.com/users).
+- **Store**: **Pinia** to handle cart, wishlist, snackbar messages and auth.
+- **Data storage**: **VueUse** to persist data.
 - **UI/UX**: **Vuetify 3** for responsive layout, icons and feedback.
 - **Routing**: Vue Router.
 
@@ -23,7 +23,7 @@ Simple Vue e-commerce using **Vue 3**, **Vite** and **Vuetify**, using mock data
 
 ---
 
-## 📦 Installazione
+## 📦 Instructions to run the application
 
 1.  **Clone repository**:
 
